@@ -34,7 +34,6 @@ def init_routes(app):
     def get_all_cids():
         try:
             cids = list(cid_collection.find({}, {"_id": 0}))
-            # Formatar o JSON de forma indentada
             formatted_json = json.dumps(cids, ensure_ascii=False, indent=4)
             return Response(formatted_json, content_type="application/json")
         except Exception as e:
@@ -47,7 +46,8 @@ def init_routes(app):
         try:
             cid = cid_collection.find_one({"codigo": codigo}, {"_id": 0})
             if cid:
-                return jsonify(cid), 200
+                formatted_json = json.dumps(cid, ensure_ascii=False, indent=4)
+                return Response(formatted_json, content_type="application/json")
             return jsonify({"error": "CID não encontrado!"}), 404
         except Exception as e:
             print(f"Erro ao acessar o banco de dados: {e}")
