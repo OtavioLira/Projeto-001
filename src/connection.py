@@ -9,7 +9,11 @@ MONGODB_URI = os.environ["MONGODB_URI"]
 
 def get_database():
     try:
-        client = MongoClient(MONGODB_URI)
+        client = MongoClient(
+            MONGODB_URI,
+            tls = True,
+            tlsAllowInvalidCertificates = True
+        )
         db = client.get_database("cid_database")
         print("Conectado ao MongoDB")
         return db
