@@ -1,4 +1,5 @@
-from flask import request, jsonify
+from flask import request, jsonify, Response
+import json
 from src.connection import get_database
 
 db = get_database()
@@ -33,7 +34,9 @@ def init_routes(app):
     def get_all_cids():
         try:
             cids = list(cid_collection.find({}, {"_id": 0}))
-            return jsonify(cids), 200
+            # Formatar o JSON de forma indentada
+            formatted_json = json.dumps(cids, ensure_ascii=False, indent=4)
+            return Response(formatted_json, content_type="application/json")
         except Exception as e:
             print(f"Erro ao acessar o banco de dados: {e}")
             return jsonify({"error": "Erro ao acessar o banco de dados"}), 500
