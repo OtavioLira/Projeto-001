@@ -32,7 +32,7 @@ def init_routes(app):
     @app.route("/cids", methods=["GET"])
     def get_all_cids():
         try:
-            cids = list(cid_collection.find({}, {"_id": 0})).limit(10)
+            cids = list(cid_collection.find({}, {"_id": 0}))
             return jsonify(cids), 200
         except Exception as e:
             print(f"Erro ao acessar o banco de dados: {e}")
