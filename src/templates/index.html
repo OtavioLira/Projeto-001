@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projeto 001 - Lira CIDs</title>
+    <style>
+      @import url(https://fonts.googleapis.com/css2?family=Lato&display=swap);
+
+      @import url(https://fonts.googleapis.com/css2?family=Open+Sans&display=swap);
+
+      /*! tailwindcss v3.4.11 | MIT License | https://tailwindcss.com*/
+      *,
+      :after,
+      :before {
+        border: 0 solid #e5e7eb;
+        box-sizing: border-box;
+      }
+      :after,
+      :before {
+        --tw-content: "";
+      }
+      :host,
+      html {
+        line-height: 1.5;
+        -webkit-text-size-adjust: 100%;
+        font-family: Open Sans, ui-sans-serif, system-ui, sans-serif,
+          Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+        font-feature-settings: normal;
+        font-variation-settings: normal;
+        -moz-tab-size: 4;
+        tab-size: 4;
+        -webkit-tap-highlight-color: transparent;
+      }
+      body {
+        line-height: inherit;
+        margin: 0;
+      }
+      hr {
+        border-top-width: 1px;
+        color: inherit;
+        height: 0;
+      }
+      abbr:where([title]) {
+        text-decoration: underline dotted;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-size: inherit;
+        font-weight: inherit;
+      }
+      a {
+        color: inherit;
+        text-decoration: inherit;
+      }
+      b,
+      strong {
+        font-weight: bolder;
+      }
+      code,
+      kbd,
+      pre,
+      samp {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+          Liberation Mono, Courier New, monospace;
+        font-feature-settings: normal;
+        font-size: 1em;
+        font-variation-settings: normal;
+      }
+      small {
+        font-size: 80%;
+      }
+      sub,
+      sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+      }
+      sub {
+        bottom: -0.25em;
+      }
+      sup {
+        top: -0.5em;
+      }
+      table {
+        border-collapse: collapse;
+        border-color: inherit;
+        text-indent: 0;
+      }
+      button,
+      input,
+      optgroup,
+      select,
+      textarea {
+        color: inherit;
+        font-family: inherit;
+        font-feature-settings: inherit;
+        font-size: 100%;
+        font-variation-settings: inherit;
+        font-weight: inherit;
+        letter-spacing: inherit;
+        line-height: inherit;
+        margin: 0;
+        padding: 0;
+      }
+      button,
+      select {
+        text-transform: none;
+      }
+      button,
+      input:where([type="button"]),
+      input:where([type="reset"]),
+      input:where([type="submit"]) {
+        -webkit-appearance: button;
+        background-color: transparent;
+        background-image: none;
+      }
+      :-moz-focusring {
+        outline: auto;
+      }
+      :-moz-ui-invalid {
+        box-shadow: none;
+      }
+      progress {
+        vertical-align: baseline;
+      }
+      ::-webkit-inner-spin-button,
+      ::-webkit-outer-spin-button {
+        height: auto;
+      }
+      [type="search"] {
+        -webkit-appearance: textfield;
+        outline-offset: -2px;
+      }
+      ::-webkit-search-decoration {
+        -webkit-appearance: none;
+      }
+      ::-webkit-file-upload-button {
+        -webkit-appearance: button;
+        font: inherit;
+      }
+      summary {
+        display: list-item;
+      }
+      blockquote,
+      dd,
+      dl,
+      figure,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      hr,
+      p,
+      pre {
+        margin: 0;
+      }
+      fieldset {
+        margin: 0;
+      }
+      fieldset,
+      legend {
+        padding: 0;
+      }
+      menu,
+      ol,
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      dialog {
+        padding: 0;
+      }
+      textarea {
+        resize: vertical;
+      }
+      input::placeholder,
+      textarea::placeholder {
+        color: #9ca3af;
+        opacity: 1;
+      }
+      [role="button"],
+      button {
+        cursor: pointer;
+      }
+      :disabled {
+        cursor: default;
+      }
+      audio,
+      canvas,
+      embed,
+      iframe,
+      img,
+      object,
+      svg,
+      video {
+        display: block;
+        vertical-align: middle;
+      }
+      img,
+      video {
+        height: auto;
+        max-width: 100%;
+      }
+      [hidden] {
+        display: none;
+      }
+      *,
+      :after,
+      :before {
+        --tw-border-spacing-x: 0;
+        --tw-border-spacing-y: 0;
+        --tw-translate-x: 0;
+        --tw-translate-y: 0;
+        --tw-rotate: 0;
+        --tw-skew-x: 0;
+        --tw-skew-y: 0;
+        --tw-scale-x: 1;
+        --tw-scale-y: 1;
+        --tw-pan-x: ;
+        --tw-pan-y: ;
+        --tw-pinch-zoom: ;
+        --tw-scroll-snap-strictness: proximity;
+        --tw-gradient-from-position: ;
+        --tw-gradient-via-position: ;
+        --tw-gradient-to-position: ;
+        --tw-ordinal: ;
+        --tw-slashed-zero: ;
+        --tw-numeric-figure: ;
+        --tw-numeric-spacing: ;
+        --tw-numeric-fraction: ;
+        --tw-ring-inset: ;
+        --tw-ring-offset-width: 0px;
+        --tw-ring-offset-color: #fff;
+        --tw-ring-color: rgba(59, 130, 246, 0.5);
+        --tw-ring-offset-shadow: 0 0 #0000;
+        --tw-ring-shadow: 0 0 #0000;
+        --tw-shadow: 0 0 #0000;
+        --tw-shadow-colored: 0 0 #0000;
+        --tw-blur: ;
+        --tw-brightness: ;
+        --tw-contrast: ;
+        --tw-grayscale: ;
+        --tw-hue-rotate: ;
+        --tw-invert: ;
+        --tw-saturate: ;
+        --tw-sepia: ;
+        --tw-drop-shadow: ;
+        --tw-backdrop-blur: ;
+        --tw-backdrop-brightness: ;
+        --tw-backdrop-contrast: ;
+        --tw-backdrop-grayscale: ;
+        --tw-backdrop-hue-rotate: ;
+        --tw-backdrop-invert: ;
+        --tw-backdrop-opacity: ;
+        --tw-backdrop-saturate: ;
+        --tw-backdrop-sepia: ;
+        --tw-contain-size: ;
+        --tw-contain-layout: ;
+        --tw-contain-paint: ;
+        --tw-contain-style: ;
+      }
+      ::backdrop {
+        --tw-border-spacing-x: 0;
+        --tw-border-spacing-y: 0;
+        --tw-translate-x: 0;
+        --tw-translate-y: 0;
+        --tw-rotate: 0;
+        --tw-skew-x: 0;
+        --tw-skew-y: 0;
+        --tw-scale-x: 1;
+        --tw-scale-y: 1;
+        --tw-pan-x: ;
+        --tw-pan-y: ;
+        --tw-pinch-zoom: ;
+        --tw-scroll-snap-strictness: proximity;
+        --tw-gradient-from-position: ;
+        --tw-gradient-via-position: ;
+        --tw-gradient-to-position: ;
+        --tw-ordinal: ;
+        --tw-slashed-zero: ;
+        --tw-numeric-figure: ;
+        --tw-numeric-spacing: ;
+        --tw-numeric-fraction: ;
+        --tw-ring-inset: ;
+        --tw-ring-offset-width: 0px;
+        --tw-ring-offset-color: #fff;
+        --tw-ring-color: rgba(59, 130, 246, 0.5);
+        --tw-ring-offset-shadow: 0 0 #0000;
+        --tw-ring-shadow: 0 0 #0000;
+        --tw-shadow: 0 0 #0000;
+        --tw-shadow-colored: 0 0 #0000;
+        --tw-blur: ;
+        --tw-brightness: ;
+        --tw-contrast: ;
+        --tw-grayscale: ;
+        --tw-hue-rotate: ;
+        --tw-invert: ;
+        --tw-saturate: ;
+        --tw-sepia: ;
+        --tw-drop-shadow: ;
+        --tw-backdrop-blur: ;
+        --tw-backdrop-brightness: ;
+        --tw-backdrop-contrast: ;
+        --tw-backdrop-grayscale: ;
+        --tw-backdrop-hue-rotate: ;
+        --tw-backdrop-invert: ;
+        --tw-backdrop-opacity: ;
+        --tw-backdrop-saturate: ;
+        --tw-backdrop-sepia: ;
+        --tw-contain-size: ;
+        --tw-contain-layout: ;
+        --tw-contain-paint: ;
+        --tw-contain-style: ;
+      }
+      #webcrumbs .relative {
+        position: relative;
+      }
+      #webcrumbs .my-2 {
+        margin-bottom: 8px;
+        margin-top: 8px;
+      }
+      #webcrumbs .ml-6 {
+        margin-left: 24px;
+      }
+      #webcrumbs .mt-2 {
+        margin-top: 8px;
+      }
+      #webcrumbs .block {
+        display: block;
+      }
+      #webcrumbs .flex {
+        display: flex;
+      }
+      #webcrumbs .h-\[300px\] {
+        height: 300px;
+      }
+      #webcrumbs .w-\[900px\] {
+        width: 900px;
+      }
+      #webcrumbs .w-full {
+        width: 100%;
+      }
+      #webcrumbs .list-decimal {
+        list-style-type: decimal;
+      }
+      #webcrumbs .flex-row {
+        flex-direction: row;
+      }
+      #webcrumbs .items-center {
+        align-items: center;
+      }
+      #webcrumbs .justify-between {
+        justify-content: space-between;
+      }
+      #webcrumbs .gap-4 {
+        gap: 16px;
+      }
+      #webcrumbs :is(.space-y-6 > :not([hidden]) ~ :not([hidden])) {
+        --tw-space-y-reverse: 0;
+        margin-bottom: calc(24px * var(--tw-space-y-reverse));
+        margin-top: calc(24px * (1 - var(--tw-space-y-reverse)));
+      }
+      #webcrumbs .rounded-lg {
+        border-radius: 24px;
+      }
+      #webcrumbs .rounded-md {
+        border-radius: 18px;
+      }
+      #webcrumbs .rounded-b-lg {
+        border-bottom-left-radius: 24px;
+        border-bottom-right-radius: 24px;
+      }
+      #webcrumbs .rounded-t-lg {
+        border-top-left-radius: 24px;
+        border-top-right-radius: 24px;
+      }
+      #webcrumbs .bg-gray-100 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+      }
+      #webcrumbs .bg-neutral-100 {
+        --tw-bg-opacity: 1;
+        background-color: rgb(238 238 238 / var(--tw-bg-opacity));
+      }
+      #webcrumbs .bg-white {
+        --tw-bg-opacity: 1;
+        background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+      }
+      #webcrumbs .object-cover {
+        object-fit: cover;
+      }
+      #webcrumbs .p-2 {
+        padding: 8px;
+      }
+      #webcrumbs .p-6 {
+        padding: 24px;
+      }
+      #webcrumbs .p-8 {
+        padding: 32px;
+      }
+      #webcrumbs .text-center {
+        text-align: center;
+      }
+      #webcrumbs .font-title {
+        font-family: Lato, ui-sans-serif, system-ui, sans-serif,
+          Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+      }
+      #webcrumbs .text-2xl {
+        font-size: 24px;
+        line-height: 31.200000000000003px;
+      }
+      #webcrumbs .text-4xl {
+        font-size: 36px;
+        line-height: 41.4px;
+      }
+      #webcrumbs .text-neutral-950 {
+        --tw-text-opacity: 1;
+        color: rgb(40 40 40 / var(--tw-text-opacity));
+      }
+      #webcrumbs .shadow-lg {
+        --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color),
+          0 4px 6px -4px var(--tw-shadow-color);
+        box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+          var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+      }
+      #webcrumbs {
+        font-family: Open Sans !important;
+        font-size: 16px !important;
+      }
+      #webcrumbs :is(.bg-neutral-100) {
+        color: rgba(0, 0, 0, 0.9) !important;
+      }
+
+      body {
+        line-height: inherit;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        min-width: 100vw;
+        min-height: 100vh;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #ffffff, #d4d4d4);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="webcrumbs">
+      <div class="w-[1200px] bg-white shadow-lg rounded-lg">
+        <header class="relative">
+          <img
+            src="{{ url_for('static', filename='images/capa.jpg') }}"
+            alt="Blog Cover"
+            class="w-full h-[300px] object-cover rounded-t-lg"
+          />
+        </header>
+        <main class="p-8 space-y-6">
+          <h1 class="text-4xl font-title text-neutral-950">
+            Documentação: Lira API CID-10
+          </h1>
+          <section>
+            <h2 class="text-2xl font-title text-neutral-950">Introdução</h2>
+            <p class="text-neutral-950">
+              Bem-vindo à <strong>Lira API CID-10</strong>, um dos projetos da meta de desenvolver 100 aplicações focadas em programação. 
+              Este projeto exemplifica a integração entre o framework <strong>Flask</strong> e o banco de dados NoSQL <strong>MongoDB</strong>, 
+              oferecendo uma API robusta para manipulação de dados da tabela CID-10 de forma totalmente gratuita.
+
+              Este projeto ainda está em desenvolvimento, portanto, podem ocorrer incoerências ou atrasos na funcionalidade da plataforma. 
+              Agradecemos sua compreensão e feedback para melhorias contínuas.
+            </p>
+          </section>
+          <section>
+            <h2 class="text-2xl font-title text-neutral-950">Objetivo</h2>
+            <p class="text-neutral-950">
+              A Lira API CID-10 foi criada para:
+              <ul class="list-disc ml-6">
+                <li>
+                  Demonstrar práticas modernas de desenvolvimento web utilizando Flask e MongoDB.
+                </li>
+                <li>
+                  Facilitar o acesso aos dados de Classificação Internacional de Doenças (CID-10).
+                </li>
+                <li>
+                  Servir como um exemplo didático na jornada de construção de 100 projetos completos.
+                </li>
+              </ul>
+            </p>
+          </section>
+          <section>
+            <h2 class="text-2xl font-title text-neutral-950">Como Usar</h2>
+            <p class="text-neutral-950">
+              Para utilizar a API, siga as etapas abaixo:
+            </p>
+            <ol class="list-decimal ml-6 text-neutral-950">
+              <li>
+                Acesse as rotas disponíveis. Por exemplo:
+                <ul class="list-disc ml-6 mt-2">
+                  <li>
+                    <strong>GET /cids</strong>: Retorna todos os CIDs registrados.
+                  </li>
+                  <li>
+                    <strong>GET /cids/A00.0:B00.0</strong>: Retorna CIDs em um intervalo específico.
+                  </li>
+                  <li>
+                    <strong>GET /cids/nome/</strong>: Retorna CIDs filtrados pelo nome especificado.
+                  </li>
+                  <li>
+                    <strong>GET /cids/codigo/</strong>: Retorna CIDs filtrados pelo código especificado.
+                  </li>
+                </ul>
+              </li>
+            </ol>
+          </section>
+          <section>
+            <h2 class="text-2xl font-title text-neutral-950">Metas</h2>
+            <p class="text-neutral-950">
+              Este é um dos <strong>100 projetos</strong> que têm como objetivo:
+            </p>
+            <ul class="list-disc ml-6">
+              <li>
+                Explorar tecnologias novas e conhecidas.
+              </li>
+              <li>
+                Criar aplicações completas, práticas e escaláveis.
+              </li>
+              <li>
+                Compartilhar conhecimento com a comunidade através de documentações e publicações no LinkedIn.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2 class="text-2xl font-title text-neutral-950">Contribuições</h2>
+            <p class="text-neutral-950">
+              Este projeto valoriza contribuições e sugestões! Caso queira colaborar, entre em contato pelo e-mail abaixo ou envie feedback diretamente pelo LinkedIn.
+            </p>
+          </section>
+        </main>
+        <footer class="bg-neutral-100 p-6 text-center rounded-b-lg">
+          <p class="text-neutral-950">Criado por: Otávio Lira Neves</p>
+          <p class="text-neutral-950">Contato: [otavioliraneves@gmail.com]</p>
+          <p class="text-neutral-950">
+            Acompanhe mais sobre os 100 projetos no meu perfil do <a href="https://www.linkedin.com/in/otavioliraneves/"><strong>LinkedIn</strong></a>!
+          </p>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
