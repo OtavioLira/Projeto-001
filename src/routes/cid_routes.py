@@ -71,9 +71,9 @@ def init_routes(app):
     @app.route("/cids/nome/<string:nome>")
     def get_cid_by_name(nome):
         try:
-            cid = cid_collection.find_one({"nome": nome.capitalize()}, {"_id": 0})
+            cid = cid_collection.find_one({"nome": nome}, {"_id": 0})
             if not cid:
-                return jsonify({"message":"Nenhum CID encontrado com o nome especificado"}), 404
+                return jsonify({"message":f"Nenhum CID encontrado com o nome especificado"}), 404
             formatted_json = json.dumps(cid, ensure_ascii=False, indent=4)
             return Response(formatted_json, content_type="application/json")
         except Exception as e:

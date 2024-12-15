@@ -500,26 +500,44 @@
           <section>
             <h2 class="text-2xl font-title text-neutral-950">Como Usar</h2>
             <p class="text-neutral-950">
-              Para utilizar a API, siga as etapas abaixo:
+              Para utilizar a API, acesse algumas das as rotas disponíveis:
             </p>
             <ol class="list-decimal ml-6 text-neutral-950">
-              <li>
-                Acesse as rotas disponíveis. Por exemplo:
+              <ul>
                 <ul class="list-disc ml-6 mt-2">
                   <li>
-                    <strong>GET /cids</strong>: Retorna todos os CIDs registrados.
+                    <strong>GET /cids (Pegar todos os cids)</strong>:
+                    <br><a href="https://projeto-001.onrender.com/cids" style="color: blue;">https://projeto-001.onrender.com/cids:</a> 
+                    Acessando essa rota você consegue visualizar todos os CIDs registrados em formato JSON, cada CID possui 3 informações; código, nome da doença e a categoria.
+                    <img src="{{ url_for('static', filename='images/exemplo_get_all_cids.png') }}" alt="">
                   </li>
                   <li>
-                    <strong>GET /cids/A00.0:B00.0</strong>: Retorna CIDs em um intervalo específico.
-                  </li>
-                  <li>
-                    <strong>GET /cids/nome/</strong>: Retorna CIDs filtrados pelo nome especificado.
-                  </li>
-                  <li>
-                    <strong>GET /cids/codigo/</strong>: Retorna CIDs filtrados pelo código especificado.
+                    <strong>Para capturar um CID especifico existe 2 métodos possíveis, pelo nome da doença ou por código, siga abaixo para entender mais</strong>
+                    <ol class="list-disc ml-8 mt-6">
+                      <li>
+                        <strong>GET /cids/codigo/[código]</strong>: <br>
+                        <a href="https://projeto-001.onrender.com/cids/codigo/" style="color: blue;">https://projeto-001.onrender.com/cids/codigo/</a>
+                        Retorna CIDs filtrados pelo código especificado, exemplo: <br>
+                        1.Buscando o codigo CID E11,<a href="https://projeto-001.onrender.com/cids/codigo/E11" style="color: blue;">https://projeto-001.onrender.com/cids/codigo/E11</a>
+                        <img src="{{ url_for('static', filename='images/exemplo_get_cid_by_cod_1.png')}}" alt="">
+                        2.Buscando o codigo CID Z76.5,<a href="https://projeto-001.onrender.com/cids/codigo/Z76.5" style="color: blue;">https://projeto-001.onrender.com/cids/codigo/Z76.5</a>
+                        <img src="{{ url_for('static', filename='images/exemplo_get_cid_by_cod_2.png')}}" alt="">
+                      </li>
+                      <li>
+                        <strong>GET /cids/nome/[nome da doença]</strong>: Retorna CIDs filtrados pelo nome especificado. <br>
+                        nota: o método de pesquisa ainda está simples, por isso caso o nome não esteja exatamente igual não terá o resultado esperado, recomendado que use a pesquisa por código <br>
+                        1.Buscando o CID de Cólera, <a href="https://projeto-001.onrender.com/cids/nome/cólera" style="color: blue;">https://projeto-001.onrender.com/cids/nome/cólera</a>
+                        <img src="{{ url_for('static', filename='images/exemplo_get_cid_by_name_1.png')}}" alt="">
+                        2.Buscando o CID de Amebíase, <a href="https://projeto-001.onrender.com/cids/nome/amebíase" style="color: blue;">https://projeto-001.onrender.com/cids/nome/amebíase</a>
+                        <img src="{{ url_for('static', filename='images/exemplo_get_cid_by_name_2.png')}}" alt="">
+                      </li>
+                    </ol>
+                    <strong>GET /cids/[inicio:fim]</strong> Também é possível retornar CIDs em um intervalo específico. <br>
+                    Buscando os códigods CID de B00 até C00, <a href="https://projeto-001.onrender.com/cids/B00:C00" style="color: blue;">https://projeto-001.onrender.com/cids/B00:C00</a>
+                    <img src="{{ url_for('static', filename='images/exemplo_get_all_cids_by_range.png')}}" alt="">
                   </li>
                 </ul>
-              </li>
+              </ul>
             </ol>
           </section>
           <section>
