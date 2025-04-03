@@ -461,7 +461,7 @@
         <header class="relative">
           <img
             src="{{ url_for('static', filename='images/capa.jpg') }}"
-            alt="Capa do Blog"
+            alt="Blog Cover"
             class="w-full h-[300px] object-cover rounded-t-lg"
           />
         </header>
@@ -484,73 +484,60 @@
             <h2 class="text-2xl font-title text-neutral-950">Objetivo</h2>
             <p class="text-neutral-950">
               A Lira API CID-10 foi criada para:
+              <ul class="list-disc ml-6">
+                <li>
+                  Demonstrar práticas modernas de desenvolvimento web utilizando Flask e MongoDB.
+                </li>
+                <li>
+                  Facilitar o acesso aos dados de Classificação Internacional de Doenças (CID-10).
+                </li>
+                <li>
+                  Servir como um exemplo didático na jornada de construção de 100 projetos completos.
+                </li>
+              </ul>
             </p>
-            <ul class="list-disc ml-6 text-neutral-950">
-              <li>
-                Demonstrar práticas modernas de desenvolvimento web utilizando Flask e MongoDB.
-              </li>
-              <li>
-                Facilitar o acesso aos dados da Classificação Internacional de Doenças (CID-10).
-              </li>
-              <li>
-                Servir como um exemplo didático na jornada de construção de 100 projetos completos.
-              </li>
-            </ul>
           </section>
           <section>
             <h2 class="text-2xl font-title text-neutral-950">Como Usar</h2>
             <p class="text-neutral-950">
-              Para utilizar a API, é necessário primeiro criar um usuário e gerar seu token. Estarei usando o Postman, mas você
-              pode usar qualquer outra ferramenta de sua preferência. Siga as etapas abaixo:
+              Para utilizar a API, acesse algumas das as rotas disponíveis:
             </p>
             <ol class="list-decimal ml-6 text-neutral-950">
-              <li>
-                <strong>POST /auth/register</strong>:<br>
-                <a href="https://projeto-001.onrender.com/auth/register" style="color: blue;">https://projeto-001.onrender.com/auth/register</a>
-                <br> Acessando essa rota, você pode registrar seu usuário e gerar seu token, que será usado para fazer requisições na aplicação.
-                Informe no corpo da requisição o nome de usuário, e-mail e senha.
-                <img src="{{ url_for('static', filename='images/exemplo_cadastro.png') }}" alt="Exemplo de Cadastro">
-              </li>
-              <li>
-                <strong>POST /auth/login</strong>:<br>
-                <a href="https://projeto-001.onrender.com/auth/login" style="color: blue;">https://projeto-001.onrender.com/auth/login</a>
-                <br> Após criar a conta, acesse essa rota e informe o usuário e senha. Se inseridos corretamente, você receberá um token.
-                <strong style="color:crimson">Este token pode expirar, será necessário gerar um novo fazendo login.</strong>
-                <br>Agora você pode fazer requisições para buscar os CIDs.
-                <img src="{{ url_for('static', filename='images/exemplo_login.png') }}" alt="Exemplo de Login">
-              </li>
-              <li>
-                <strong>GET /api/cids (Obter todos os CIDs)</strong>:<br>
-                <a href="https://projeto-001.onrender.com/api/cids" style="color: blue;">https://projeto-001.onrender.com/api/cids</a>
-                <br> Acessando essa rota, você pode visualizar todos os CIDs registrados em formato JSON. Cada CID contém três informações: código, nome da doença e categoria.
-                <img src="{{ url_for('static', filename='images/exemplo_get_all_cids.png') }}" alt="Exemplo de Requisição de Todos os CIDs">
-              </li>
-              <li>
-                <strong>Buscar um CID específico</strong>:
-                <ul class="list-disc ml-8 mt-6">
+              <ul>
+                <ul class="list-disc ml-6 mt-2">
                   <li>
-                    <strong>GET /api/cids/codigo/[código]</strong>:<br>
-                    Retorna um CID filtrado pelo código especificado.
-                    <br> Exemplo: 
-                    <br>1. Buscando o código CID E11: <a href="https://projeto-001.onrender.com/api/cids/codigo/E11" style="color: blue;">https://projeto-001.onrender.com/api/cids/codigo/E11</a>
-                    <img src="{{ url_for('static', filename='images/exemplo_get_cid_by_cod_1.png')}}" alt="Exemplo de Busca por Código E11">
-                    <br>2. Buscando o código CID C14: <a href="https://projeto-001.onrender.com/api/cids/codigo/Z76.5" style="color: blue;">https://projeto-001.onrender.com/api/cids/codigo/Z76.5</a>
-                    <img src="{{ url_for('static', filename='images/exemplo_get_cid_by_cod_2.png')}}" alt="Exemplo de Busca por Código Z76.5">
+                    <strong>GET /cids (Pegar todos os cids)</strong>:
+                    <br><a href="https://projeto-001.onrender.com/cids" style="color: blue;">https://projeto-001.onrender.com/cids:</a> 
+                    Acessando essa rota você consegue visualizar todos os CIDs registrados em formato JSON, cada CID possui 3 informações; código, nome da doença e a categoria.
+                    <img src="{{ url_for('static', filename='images/exemplo_get_all_cids.png') }}" alt="">
                   </li>
                   <li>
-                    <strong>GET /api/cids/nome/[nome da doença]</strong>:<br>
-                    Retorna um CID filtrado pelo nome especificado.
-                    <br> Nota: o método de pesquisa ainda está simples. Caso o nome não esteja exatamente igual ao registrado, o resultado pode não ser encontrado. É recomendável utilizar a busca por código.
-                    <br>1. Buscando o CID de Cólera: <a href="https://projeto-001.onrender.com/api/cids/nome/cólera" style="color: blue;">https://projeto-001.onrender.com/api/cids/nome/cólera</a>
-                    <img src="{{ url_for('static', filename='images/exemplo_get_cid_by_name_1.png')}}" alt="Exemplo de Busca por Nome - Cólera">
-                  </li>
-                  <li>
-                    <strong>GET /api/cids/[inicio:fim]</strong> Também é possível retornar CIDs em um intervalo específico. <br>
+                    <strong>Para capturar um CID especifico existe 2 métodos possíveis, pelo nome da doença ou por código, siga abaixo para entender mais</strong>
+                    <ol class="list-disc ml-8 mt-6">
+                      <li>
+                        <strong>GET /cids/codigo/[código]</strong>: <br>
+                        <a href="https://projeto-001.onrender.com/cids/codigo/" style="color: blue;">https://projeto-001.onrender.com/cids/codigo/</a>
+                        Retorna CIDs filtrados pelo código especificado, exemplo: <br>
+                        1.Buscando o codigo CID E11,<a href="https://projeto-001.onrender.com/cids/codigo/E11" style="color: blue;">https://projeto-001.onrender.com/cids/codigo/E11</a>
+                        <img src="{{ url_for('static', filename='images/exemplo_get_cid_by_cod_1.png')}}" alt="">
+                        2.Buscando o codigo CID Z76.5,<a href="https://projeto-001.onrender.com/cids/codigo/Z76.5" style="color: blue;">https://projeto-001.onrender.com/cids/codigo/Z76.5</a>
+                        <img src="{{ url_for('static', filename='images/exemplo_get_cid_by_cod_2.png')}}" alt="">
+                      </li>
+                      <li>
+                        <strong>GET /cids/nome/[nome da doença]</strong>: Retorna CIDs filtrados pelo nome especificado. <br>
+                        nota: o método de pesquisa ainda está simples, por isso caso o nome não esteja exatamente igual não terá o resultado esperado, recomendado que use a pesquisa por código <br>
+                        1.Buscando o CID de Cólera, <a href="https://projeto-001.onrender.com/cids/nome/cólera" style="color: blue;">https://projeto-001.onrender.com/cids/nome/cólera</a>
+                        <img src="{{ url_for('static', filename='images/exemplo_get_cid_by_name_1.png')}}" alt="">
+                        2.Buscando o CID de Amebíase, <a href="https://projeto-001.onrender.com/cids/nome/amebíase" style="color: blue;">https://projeto-001.onrender.com/cids/nome/amebíase</a>
+                        <img src="{{ url_for('static', filename='images/exemplo_get_cid_by_name_2.png')}}" alt="">
+                      </li>
+                    </ol>
+                    <strong>GET /cids/[inicio:fim]</strong> Também é possível retornar CIDs em um intervalo específico. <br>
                     Buscando os códigods CID de B00 até C00, <a href="https://projeto-001.onrender.com/cids/B00:C00" style="color: blue;">https://projeto-001.onrender.com/cids/B00:C00</a>
                     <img src="{{ url_for('static', filename='images/exemplo_get_all_cids_by_range.png')}}" alt="">
                   </li>
                 </ul>
-              </li>
+              </ul>
             </ol>
           </section>
           <section>
@@ -558,7 +545,7 @@
             <p class="text-neutral-950">
               Este é um dos <strong>100 projetos</strong> que têm como objetivo:
             </p>
-            <ul class="list-disc ml-6 text-neutral-950">
+            <ul class="list-disc ml-6">
               <li>
                 Explorar tecnologias novas e conhecidas.
               </li>
@@ -569,6 +556,12 @@
                 Compartilhar conhecimento com a comunidade através de documentações e publicações no LinkedIn.
               </li>
             </ul>
+          </section>
+          <section>
+            <h2 class="text-2xl font-title text-neutral-950">Contribuições</h2>
+            <p class="text-neutral-950">
+              Este projeto valoriza contribuições e sugestões! Caso queira colaborar, entre em contato pelo e-mail abaixo ou envie feedback diretamente pelo LinkedIn.
+            </p>
           </section>
         </main>
         <footer class="bg-neutral-100 p-6 text-center rounded-b-lg">
